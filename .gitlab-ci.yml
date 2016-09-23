@@ -66,7 +66,7 @@ uitests:
   - export DISPLAY=:99
   - 'Xvfb $DISPLAY -screen 0 1920x1080x24 &'
   - 'fluxbox -display :99 &'
-  - 'mvn $MAVEN_CLI_OPTS -f uitests test'
+  - 'mvn $MAVEN_CLI_OPTS -f uitests -Durl=http://52.49.123.191:9090/petclinic test'
 
 #pages:
 #  image: busybox:latest
