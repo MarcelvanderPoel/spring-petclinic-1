@@ -67,7 +67,8 @@ uitests:
   - 'Xvfb $DISPLAY -screen 0 1920x1080x24 &'
   - 'fluxbox -display :99 &'
   - 'mvn $MAVEN_CLI_OPTS -f uitests -Durl=http://52.49.123.191:9090/petclinic test'
-
+  artifacts:
+  - ss.jpg
 #pages:
 #  image: busybox:latest
 #  stage: deploy
