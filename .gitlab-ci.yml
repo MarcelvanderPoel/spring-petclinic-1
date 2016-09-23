@@ -64,7 +64,7 @@ uitests:
   - mkdir /root/.vnc && (echo changeme; echo changeme) | vncpasswd /root/.vnc/passwd
   - touch /root/.vnc/xstartup && chmod a+x /root/.vnc/xstartup
   - export DISPLAY=:99
-  - 'Xvfb $DISPLAY -screen 0 &'
+  - 'Xvfb $DISPLAY -screen 0 1920x1080x24 &'
   - 'fluxbox -display :99 &'
   - 'mvn $MAVEN_CLI_OPTS -f uitests test'
 
