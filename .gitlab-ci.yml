@@ -32,6 +32,9 @@ buildandtest:
 deploy:jdk8:
   # Use stage test here, so the pages job may later pickup the created site.
   stage: test
+  tags:
+  - deploy
+  - test
 #  script:
 #    - 'mvn $MAVEN_CLI_OPTS deploy site site:stage'
   only:
@@ -42,8 +45,7 @@ deploy:jdk8:
 #  artifacts:
 #    paths:
 #    - target/staging
-  image: maven:3.3.9-jdk-8
-
+  
 
 #pages:
 #  image: busybox:latest
