@@ -48,7 +48,15 @@ deploy:jdk8:
 #  artifacts:
 #    paths:
 #    - target/staging
-  
+
+uitests:
+  stage: test
+  tags:
+  - shared
+  only: 
+  - master
+  script:
+  - 'mvn $MAVEN_CLI_OPTS -f uitests test'
 
 #pages:
 #  image: busybox:latest
