@@ -31,19 +31,19 @@ buildandtest:
 # To get this working you need to define a volume while configuring your gitlab-ci-multi-runner.
 # Mount your `settings.xml` as `/root/.m2/settings.xml` which holds your secrets.
 # See https://maven.apache.org/settings.html
-deploy:jdk8:
+#deploy:jdk8:
   # Use stage test here, so the pages job may later pickup the created site.
-  stage: test
-  tags:
-  - deploy
-  - test
+#  stage: test
+#  tags:
+#  - deploy
+#  - test
 #  script:
 #    - 'mvn $MAVEN_CLI_OPTS deploy site site:stage'
-  only:
-    - master
-  script:
-  - ls -al *
-  - cp target/petclinic.war /opt/tomcat/webapps
+#  only:
+#    - master
+#  script:
+#  - ls -al *
+#  - cp target/petclinic.war /opt/tomcat/webapps
   # Archive up the built documentation site.
 #  artifacts:
 #    paths:
