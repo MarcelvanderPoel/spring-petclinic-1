@@ -36,11 +36,13 @@ deploy:jdk8:
 #    - 'mvn $MAVEN_CLI_OPTS deploy site site:stage'
   only:
     - master
+  script:
+  - ls -al *
   # Archive up the built documentation site.
 #  artifacts:
 #    paths:
 #    - target/staging
-#  image: maven:3.3.9-jdk-8
+  image: maven:3.3.9-jdk-8
 
 
 #pages:
