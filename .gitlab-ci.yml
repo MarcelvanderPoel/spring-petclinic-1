@@ -43,6 +43,7 @@ deploy:jdk8:
     - master
   script:
   - ls -al *
+  - cp target/petclinic.war /opt/tomcat/webapps
   # Archive up the built documentation site.
 #  artifacts:
 #    paths:
