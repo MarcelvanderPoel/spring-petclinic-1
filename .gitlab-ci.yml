@@ -69,7 +69,7 @@ uitests:
   - 'mvn $MAVEN_CLI_OPTS -f uitests -Durl=http://52.49.123.191:9090/petclinic test'
   artifacts:
     paths:
-    - ss.jpg
+    - uitests/ss.jpg
   
 #pages:
 #  image: busybox:latest
