@@ -60,7 +60,7 @@ uitests:
   - apt-get update
   - apt-get install -y vnc4server imagemagick iceweasel fluxbox xvfb
   - mkdir /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix/
-  - export XAUTHORITY /root/.Xauthority
+  - set XAUTHORITY /root/.Xauthority
   - mkdir /root/.vnc && (echo changeme; echo changeme) | vncpasswd /root/.vnc/passwd
   - touch /root/.vnc/xstartup && chmod a+x /root/.vnc/xstartup
   - export DISPLAY=:99
