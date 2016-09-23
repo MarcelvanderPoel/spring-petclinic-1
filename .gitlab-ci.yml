@@ -68,7 +68,9 @@ uitests:
   - 'fluxbox -display :99 &'
   - 'mvn $MAVEN_CLI_OPTS -f uitests -Durl=http://52.49.123.191:9090/petclinic test'
   artifacts:
-  - ss.jpg
+    paths:
+    - ss.jpg
+  
 #pages:
 #  image: busybox:latest
 #  stage: deploy
