@@ -31,19 +31,19 @@ buildandtest:
 # To get this working you need to define a volume while configuring your gitlab-ci-multi-runner.
 # Mount your `settings.xml` as `/root/.m2/settings.xml` which holds your secrets.
 # See https://maven.apache.org/settings.html
-deploy:jdk8:
+#deploy:jdk8:
   # Use stage test here, so the pages job may later pickup the created site.
-  stage: test
-  tags:
-  - deploy
-  - test
+#  stage: test
+#  tags:
+#  - deploy
+#  - test
 #  script:
 #    - 'mvn $MAVEN_CLI_OPTS deploy site site:stage'
-  only:
-    - master
-  script:
-  - ls -al *
-  - cp target/petclinic.war /opt/tomcat/webapps
+#  only:
+#    - master
+#  script:
+#  - ls -al *
+#  - cp target/petclinic.war /opt/tomcat/webapps
   # Archive up the built documentation site.
 #  artifacts:
 #    paths:
@@ -57,8 +57,20 @@ uitests:
   only: 
   - master
   script:
-  - 'mvn $MAVEN_CLI_OPTS -f uitests test'
-
+  - apt-get update
+  - apt-get install -y vnc4server imagemagick iceweasel fluxbox xvfb
+  - mkdir /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix/
+  - set XAUTHORITY /root/.Xauthority
+  - mkdir /root/.vnc && (echo changeme; echo changeme) | vncpasswd /root/.vnc/passwd
+  - touch /root/.vnc/xstartup && chmod a+x /root/.vnc/xstartup
+  - export DISPLAY=:99
+  - 'Xvfb $DISPLAY -screen 0 1920x1080x24 &'
+  - 'fluxbox -display :99 &'
+  - 'mvn $MAVEN_CLI_OPTS -f uitests -Durl=http://52.49.123.191:9090/petclinic test'
+  artifacts:
+    paths:
+    - uitests/ss.jpg
+  
 #pages:
 #  image: busybox:latest
 #  stage: deploy
