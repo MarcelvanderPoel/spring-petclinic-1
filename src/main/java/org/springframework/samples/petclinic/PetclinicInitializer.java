@@ -50,7 +50,7 @@ public class PetclinicInitializer extends AbstractDispatcherServletInitializer {
      * When using Spring JDBC, use: jdbc
      * When using Spring Data JPA, use: spring-data-jpa
      */
-    private static final String SPRING_PROFILE = "jpa";
+    private static final String[] SPRING_PROFILE = {"jdbc","javaee"};
 
     private static final String DANDELION_SERVLET = "dandelionServlet";
 

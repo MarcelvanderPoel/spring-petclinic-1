@@ -19,7 +19,7 @@
         <!-- Spring -->
         <spring-io-platform.version>2.0.7.RELEASE</spring-io-platform.version>
         <spring-data-jdbc.version>1.1.0.RELEASE</spring-data-jdbc.version>
-
+        <spring.profiles.active>javaee</spring.profiles.active>
 
         <!-- Java EE / Java SE dependencies -->
         <tomcat.version>7.0.59</tomcat.version>
@@ -185,12 +185,11 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- For MySql only -->
-        <!--dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-driver.version}</version>
-        </dependency-->
+        </dependency>
 
         <!-- HIBERNATE -->
         <dependency>
